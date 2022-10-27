@@ -3,6 +3,12 @@ const {User} = require('../model/index')
 exports.login = async(req, res, next) => {
     try {
         // 处理请求
+
+        // 数据验证
+
+        // 生成token
+
+        //发送成功响应(包含token信息)
         res.send('post /users/login')
     } catch (error) {
         next(error)

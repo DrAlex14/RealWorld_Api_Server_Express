@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true,
         set: (value) => md5(value),
-        select: false  //返回信息中不包含password
+        select: false  //查询返回信息中不包含password
     },
     email: {
         type: String,

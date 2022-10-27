@@ -1,5 +1,9 @@
 realWorld_server_express
 
+npm install 安装依赖
+
+npm run dev 启动项目
+
 #	Express实战接口开发案例
 
 

@@ -6,7 +6,9 @@ npm run dev 启动项目
 
 #	Express实战接口开发案例
 
+github地址：https://github.com/gothinkster/realworld
 
+[real_wrold开发文档](https://realworld-docs.netlify.app/docs/specs/backend-specs/endpoints/)
 
 ## [【Express】实战 - 手把手带你搭建开源项目RealWorld后端接口 - RESTfulAPI](https://juejin.cn/post/7023336392935604231#heading-30)
 

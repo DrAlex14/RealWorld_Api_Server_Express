@@ -1,15 +1,24 @@
 const {User} = require('../model/index')
+const jwt = require('../util/jwt');
+const {jwt_secret} = require('../config/config.default')
 
 exports.login = async(req, res, next) => {
     try {
         // 处理请求
-
+        let user = req.user.toJSON()
         // 数据验证
-
+        console.log(user);
         // 生成token
+        const token = await jwt.sign({
+            userId: user._id  // 保存mongo时获得的id
+        }, jwt_secret)
 
         //发送成功响应(包含token信息)
-        res.send('post /users/login')
+        delete user.password // 除去敏感信息
+        res.status(200).json({
+            ...user,
+            token
+        })
     } catch (error) {
         next(error)
     }

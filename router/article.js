@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const articleCtrl = require('../controller/article')
+const auth = require('../middleware/auth')
 
 // 文章列表
-router.get('/', articleCtrl.getArticleList)
+router.get('/', auth, articleCtrl.getArticleList)
 
 //  分类文章
-router.get('/', articleCtrl.feedArticle)
+router.get('/feed', articleCtrl.feedArticle)
 
 // 查看文章
 router.get('/:slug', )

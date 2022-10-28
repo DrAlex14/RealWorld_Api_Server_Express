@@ -11,7 +11,9 @@ exports.login = async(req, res, next) => {
         // 生成token
         const token = await jwt.sign({
             userId: user._id  // 保存mongo时获得的id
-        }, jwt_secret)
+        }, jwt_secret, {  // 设置token过期时间，单位为秒 
+            expiresIn: 60 * 60 * 24,
+        })
 
         //发送成功响应(包含token信息)
         delete user.password // 除去敏感信息
@@ -47,7 +49,9 @@ exports.signUp = async(req, res, next) => {
 exports.getCurrentUser = async(req, res, next) => {
     try {
         // 处理请求
-        res.send('get /user')
+        res.status(200).json({
+            user: req.user
+        })
     } catch (error) {
         next(error)
     }

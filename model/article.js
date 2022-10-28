@@ -3,25 +3,34 @@ const base_model = require('./base_model')
 
 const articleSchema = new mongoose.Schema({
     ...base_model,
-    username: {
+    title: {
         type: String,
         require: true
     },
-    password: {
+    description: {
         type: String,
         require: true
     },
-    email: {
+    body: {
         type: String,
         require: true
     },
-    bio: {
-        type: String,
+    tagList: {
+        type: [String],
         default: null
     },
-    image: {
-        type: String,
-        default: null
+    favorited: {
+        type: Boolean,
+        default: false
+    },
+    favoritesCount: {
+        type: Number,
+        default: 0
+    },
+    author: {  // 关联User用户
+        type: mongoose.Schema.Types.ObjectId,
+        require: true,
+        ref: 'User'
     }
 })
 
